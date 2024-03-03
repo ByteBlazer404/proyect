@@ -25,23 +25,23 @@ if (isset($_SESSION['usuario'])) {
 			<div id="carouselExampleIndicators" class="carousel slide">
 				<div class="carousel-indicators carousel-indicators-dots">
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-						aria-current="true" aria-label="Slide 1"></button>
+						aria-current="true" aria-label="Slide 1" class="rounded-circle"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-						aria-label="Slide 2"></button>
+						aria-label="Slide 2" class="rounded-circle"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-						aria-label="Slide 3"></button>
+						aria-label="Slide 3" class="rounded-circle"></button>
 				</div>
 				<div class="carousel-inner p-2">
-					<div class="carousel-item active">
-						<img src="../img/slider1.jpg" class="d-block w-100 rounded" alt="..." width="100%" height="390px"
+					<div class="carousel-item active w-100" style="height: 400px;">
+						<img src="../img/pexels-frank-cone-2235130.jpg" class="d-block w-100 rounded-4" alt="..." width="90%" height="390px"
 							style="object-fit: cover;">
 					</div>
-					<div class="carousel-item">
-						<img src="../img/slider2.jpg" class="d-block w-100 rounded" alt="..." width="100%" height="390px"
+					<div class="carousel-item w-100" style="height: 400px;">
+						<img src="../img/pexels-magda-ehlers-1337386.jpg" class="d-block w-100 rounded-4" alt="..." width="90%" height="390px"
 							style="object-fit: cover;">
 					</div>
-					<div class="carousel-item">
-						<img src="../img/slider3.jpg" class="d-block w-100 rounded" alt="..." width="100%" height="390px"
+					<div class="carousel-item w-100 " style="height: 400px;">
+						<img src="../img/pexels-scott-webb-430205.jpg" class="d-block w-100 rounded-4" alt="..." width="90%" height="390px"
 							style="object-fit: cover;">
 					</div>
 				</div>
@@ -58,7 +58,7 @@ if (isset($_SESSION['usuario'])) {
 			</div>
 		</div>
 		<div class="container-fluid d-block" style="padding-top: 2%;">
-		<h3 class="text-left title fs-3 p-2">Productos más vendidos</h3>
+		<h3 class="text-left title fs-1 p-2">Categorias</h3>
 			<div class="container p-2 d-flex " style="flex-wrap: wrap;">
 				<hr>
 				<?php
