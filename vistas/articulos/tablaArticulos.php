@@ -24,41 +24,44 @@
 	<caption><label>Articulos</label></caption>
 	<thead class="table-dark text-light text-center">
 		<tr>
-			<td>Nombre</td>
-			<td>Descripcion</td>
-			<td>Cantidad</td>
-			<td>Precio</td>
-			<td>Categoria</td>
-			<td colspan="3">Acciones</td>
+			<div style="width: 90%;">
+				<td>Nombre</td>
+				<td>Descripcion</td>
+				<td>Cantidad</td>
+				<td>Precio</td>
+				<td>Imagen</td>
+				<td>Categoria</td>
+			</div>
+			<td colspan="2" style="width: 10%;">Acciones</td>
 		</tr>
 	</thead>
 	<?php while($ver=mysqli_fetch_row($result)): ?>
 	
-	<tr>
+	<tr class="text-center align-items-center">
 		<td><?php echo $ver[0]; ?></td>
 		<td><?php echo $ver[1]; ?></td>
 		<td><?php echo $ver[2]; ?></td>
 		<td><?php echo $ver[3]; ?></td>
-		<td><?php echo $ver[5]; ?></td>
 		<td>
-			<span data-toggle="modal" data-target="#abremodalUpdateArticulo" class="btn btn-warning btn-xs" onclick="agregaDatosArticulo('<?php echo $ver[6] ?>')">
-				<span class="glyphicon glyphicon-pencil"></span>
-			</span>
-		</td>
-		<td>
-			<span class="btn btn-danger btn-xs" onclick="eliminarArticulo('<?php echo $ver[6] ?>')">
-				<span class="glyphicon glyphicon-remove"></span>
-			</span>
-		</td>
-	</tr>
-	<?php endwhile; ?>
-</table>
-<div>
-<td>
 			<?php 
 			$imgver=explode("/", $ver[4]); 
 			$imgruta=$imgver[1]."/".$imgver[2]."/".$imgver[3];
 			?>
 			<img width="80" height="80" src="<?php echo $imgruta ?>">
 		</td>
+		<td><?php echo $ver[5]; ?></td>
+		<td>
+			<button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#updateArticle">
+				<img src="../img/edit-icon.svg" alt="edit category" title="editar articulo">
+			</button>
+		</td>
+		<td>
+			<span class="btn d-flex justify-content-center align-items-center" onclick="eliminarArticulo('<?php echo $ver[6] ?>')">
+				<img src="../img/delete-icon.svg" alt="delete category" title="eliminar articulo">
+			</span>
+		</td>
+	</tr>
+	<?php endwhile; ?>
+</table>
+<div>
 </div>
