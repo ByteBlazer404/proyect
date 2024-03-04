@@ -20,17 +20,16 @@
 
 
 <div class="table-responsive">
-	<table class="table table-hover table-condensed table-bordered" style="text-align: center;">
+	<table class="table table-hover table-condensed table-bordered rounded-3 overflow-hidden" style="text-align: center;">
 		<caption><label>Clientes</label></caption>
-		<tr>
+		<tr class="table-dark text-center text-light">
 			<td>Nombre</td>
 			<td>Apellido</td>
 			<td>Direccion</td>
 			<td>Email</td>
 			<td>Telefono</td>
 			<td>RFC</td>
-			<td>Editar</td>
-			<td>Eliminar</td>
+			<td colspan="2">Acciones</td>
 		</tr>
 
 		<?php while($ver=mysqli_fetch_row($result)): ?>
@@ -43,15 +42,15 @@
 			<td><?php echo $ver[5]; ?></td>
 			<td><?php echo $ver[6]; ?></td>
 			<td>
-			<span class="btn btn-warning btn-xs">
-				<span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#modalCliente" onclick="agregaDatosCliente('<?php echo $ver[0]; ?>')"></span>
-			</span>
-		</td>
-		<td>
-			<span class="btn btn-danger btn-xs" onclick="eliminaCliente('<?php echo $ver[0]; ?>')">
-				<span class="glyphicon glyphicon-remove"></span>
-			</span>
-		</td>
+				<button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#updateClient">
+					<img src="../img/edit-icon.svg" alt="edit client" title="editar cliente">
+				</button>
+			</td>
+			<td>
+				<span class="btn d-flex justify-content-center align-items-center" onclick="eliminaCliente('<?php echo $ver[0]; ?>')">
+					<img src="../img/delete-icon.svg" alt="delete client" title="eliminar cliente">
+				</span>
+			</td>
 		</tr>
 	<?php endwhile; ?>
 	</table>
