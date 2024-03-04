@@ -25,9 +25,9 @@
 	<tr>
 		<td class="text-star"><?php echo $ver[1] ?></td>
 		<td>
-			<span class="btn d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#actualizaCategoria" onclick="agregaDato('<?php echo $ver[0] ?>','<?php echo $ver[1] ?>')">
+			<button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#actualizaCategoria">
 				<img src="../img/edit-icon.svg" alt="edit category" title="editar categoria">
-			</span>
+			</button>
 		</td>
 		<td>
 			<span class="btn d-flex justify-content-center align-items-center" onclick="eliminaCategoria('<?php echo $ver[0] ?>')" >

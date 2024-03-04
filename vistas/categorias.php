@@ -18,25 +18,15 @@ if (isset($_SESSION['usuario'])) {
 		<div class="container-fluid d-block">
 			<h1 class="fs-1 mt-5 mb-3" style="padding-left: 10vw;">Categorias</h1>
 			<button type="button" class="btn btn-danger text-light mb-3" data-bs-toggle="modal"
-				data-bs-target="#exampleModal" style="margin-left: 10vw;">
+				data-bs-target="#newCategory" style="margin-left: 10vw;">
 				Añadir Nueva Categoría
 			</button>
 			<div class="container d-flex" style="width: 80vw;">
 				<div id="tablaCategoriaLoad" class="w-100"></div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-4">
-				<form id="frmCategorias">
-					<label>Categorias</label>
-					<input type="text" class="form-control input-sm" name="categoria" id="categoria">
-					<p></p>
-					<span class="btn btn-primary" id="btnAgregarCategoria">Agregar</span>
-				</form>
-			</div>
-		</div>
-
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!--add new category -->
+		<div class="modal fade" id="newCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -45,49 +35,46 @@ if (isset($_SESSION['usuario'])) {
 					</div>
 					<div class="modal-body">
 						<form id="frmCategorias">
-							<div class="form-control d-block">
+							<div class="d-block">
 								<label for="categoria" class="form-label">
 									Nombre:
 								</label>
-								<input type="text" name="categoria" id="categoria" class="form-input">
+								<input type="text" name="categoria" id="categoria" class="form-control">
 							</div>
-							<span class="btn btn-primary" id="btnAgregarCategoria" data-bs-dismiss="modal">Agregar</span>
+							<div class="modal-footer justify-content-center d-flex">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+								<button class="btn btn-primary" id="btnAgregarCategoria" data-bs-dismiss="modal">Agregar</button>
+							</div>
 						</form>
-					</div>
-					<div class="modal-footer justify-content-center d-flex">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		<!--Edit category-->
+		<div class="modal fade" id="actualizaCategoria" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Categoría</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="frmCategoriaU">
+							<input type="hidden" id="idcategoria" name="idcategoria">
+							<label class="form-label" for="categoriaU">Categoria</label>
+							<input type="text" id="categoriaU" name="categoriaU" class="form-control">
+							<div class="modal-footer justify-content-center d-flex">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+								<button class="btn btn-primary" id="btnActualizaCategoria" data-bs-dismiss="modal">Editar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Button trigger modal -->
 
 		<!-- Modal -->
-		<div class="modal fade" id="actualizaCategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog modal-sm" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-								aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Actualiza categoria</h4>
-					</div>
-					<div class="modal-body" data-target="modal">
-
-						<form id="frmCategoriaU">
-							<input type="text" hidden="" id="idcategoria" name="idcategoria">
-							<label>Categoria</label>
-							<input type="text" id="categoriaU" name="categoriaU" class="form-control input-sm">
-						</form>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" id="btnActualizaCategoria" class="btn btn-warning"
-							data-dismiss="modal">Guardar</button>
-					</div>
-				</div>
-			</div>
-		</div>
 
 	</body>
 
