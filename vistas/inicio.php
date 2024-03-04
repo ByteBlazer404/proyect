@@ -58,7 +58,7 @@ if (isset($_SESSION['usuario'])) {
 			</div>
 		</div>
 		<div class="container-fluid d-block" style="padding-top: 2%;">
-		<h3 class="text-left title fs-1 p-2">Categorias</h3>
+		<h3 class="text-left title fs-1 p-2">Productos</h3>
 			<div class="container p-2 d-flex " style="flex-wrap: wrap;">
 				<hr>
 				<?php
@@ -102,62 +102,6 @@ if (isset($_SESSION['usuario'])) {
 								</div>
 								<div class=""></div>
 								</div>
-							<?php
-						}
-					} else {
-						?>
-						NO HAY PRODUCTOS EN VENTA
-						<?php
-					}
-				}
-				?>
-			</div>
-		</div>
-		<div class="container container-fluid" style="padding-top: 5.5%;">
-			<div class="row">
-				<?php
-				require_once "../clases/Articulos.php";
-
-				$c = new conectar();
-				$conexion = $c->conexion();
-				$sql = "SELECT art.nombre, art.descripcion, art.cantidad, art.precio, img.ruta, cat.nombreCategoria, art.id_producto
-                FROM articulos as art
-                INNER JOIN imagenes as img ON art.id_imagen = img.id_imagen
-                INNER JOIN categorias as cat ON art.id_categoria = cat.id_categoria";
-
-				$result = mysqli_query($conexion, $sql);
-
-				// Empieza el ciclo de repetición de productos
-				$cantidad = 1;
-
-				while ($ver = mysqli_fetch_row($result)) {
-					if ($cantidad > 0) {
-						for ($i = 0; $i < $cantidad; $i++) {
-							?>
-							<!-- ... -->
-							<div class="col-md-3">
-								<div class="panel panel-default">
-									<div class="panel-body" style="text-align: center;">
-										<form id="frmCarrito">
-											<?php
-											$imgver = explode("/", $ver[4]);
-											$imgruta = $imgver[1] . "/" . $imgver[2] . "/" . $imgver[3];
-											?>
-											<img width="80" height="80" src="<?php echo $imgruta ?>">
-											<p>
-												<?php echo $ver[0]; ?>
-											</p>
-											<p>
-												<?php echo $ver[1]; ?>
-											</p>
-											<span>
-												<?php echo "$" . $ver[3] ?>
-											</span>
-										</form>
-
-									</div>
-								</div>
-							</div>
 							<?php
 						}
 					} else {

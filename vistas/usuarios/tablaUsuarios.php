@@ -17,6 +17,7 @@
 <table class="table table-hover table-condensed table-bordered rounded-3 overflow-hidden" style="text-align: center;">
 	<caption><label>Usuarios</label></caption>
 	<tr class="table-dark text-light text-center">
+		<td>Id</td>
 		<td>Nombre</td>
 		<td>Apellido</td>
 		<td>Usuario</td>
@@ -27,6 +28,7 @@
 	<?php while($ver=mysqli_fetch_row($result)): ?>
 
 	<tr>
+		<td><?php echo $ver[0] ?></td>
 		<td><?php echo $ver[1] ?></td>
 		<td><?php echo $ver[2] ?></td>
 		<td><?php echo $ver[3] ?></td>
