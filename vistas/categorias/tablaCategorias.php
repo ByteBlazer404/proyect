@@ -10,30 +10,34 @@
  	 ?>
 
 
-<table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-	<caption><label>Categorias :D</label></caption>
-	<tr>
-		<td>Categorias</td>
-		<td>Editar</td>
-		<td>Eliminar</td>
+<table class="table table-hover table-condensed table-bordered rounded-3 overflow-hidden">
+ 	<thead class="table-dark text-light text-center">
+	 <tr>
+		<td style="width:80%">Categorias</td>
+		<td colspan="3" style="width: 20%;">Acciones</td>
 	</tr>
-
+	</thead>
 	<?php 
 		while ($ver=mysqli_fetch_row($result)):
 		
 	 ?>
 
 	<tr>
-		<td><?php echo $ver[1] ?></td>
+		<td class="text-star"><?php echo $ver[1] ?></td>
 		<td>
-			<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#actualizaCategoria" onclick="agregaDato('<?php echo $ver[0] ?>','<?php echo $ver[1] ?>')">
-				<span class="glyphicon glyphicon-pencil"></span>
+			<span class="btn d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#actualizaCategoria" onclick="agregaDato('<?php echo $ver[0] ?>','<?php echo $ver[1] ?>')">
+				<img src="../img/edit-icon.svg" alt="edit category" title="editar categoria">
 			</span>
 		</td>
 		<td>
-			<span class="btn btn-danger btn-xs" onclick="eliminaCategoria('<?php echo $ver[0] ?>')" >
-				<span class="glyphicon glyphicon-remove"></span>
+			<span class="btn d-flex justify-content-center align-items-center" onclick="eliminaCategoria('<?php echo $ver[0] ?>')" >
+				<img src="../img/delete-icon.svg" alt="delete category" title="eliminar categoria">
 			</span>
+		</td>
+		<td>
+			<button class="btn d-flex justify-content-center align-items-center">
+				<img src="../img/show-icon.svg" alt="show" title="ver categoria">
+			</button>
 		</td>
 	</tr>
 <?php endwhile; ?>
