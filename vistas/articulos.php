@@ -19,9 +19,14 @@ if(isset($_SESSION['usuario'])){
 		?>
 	</head>
 	<body>
-
-		<div class="container">
-			<h1>Articulos</h1>
+		<div class="container-fluid">
+			<div class="container d-block" style="width: 85%">
+				<h1 class="text-left fs-1 mt-4 mb-3">Articulos</h1>
+				<div id="tablaArticulosLoad"></div>
+			</div>
+		</div>
+		<div class="container-md text-start">
+			<h1 class="fs-1">Articulos</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmArticulos" enctype="multipart/form-data">
