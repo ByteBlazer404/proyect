@@ -35,7 +35,7 @@
 			</span>
 		</td>
 		<td>
-			<button class="btn d-flex justify-content-center align-items-center">
+			<button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#showCategory">
 				<img src="../img/show-icon.svg" alt="show" title="ver categoria">
 			</button>
 		</td>

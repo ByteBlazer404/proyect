@@ -43,7 +43,8 @@ if (isset($_SESSION['usuario'])) {
 							</div>
 							<div class="modal-footer justify-content-center d-flex">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-								<button class="btn btn-primary" id="btnAgregarCategoria" data-bs-dismiss="modal">Agregar</button>
+								<button class="btn btn-primary" id="btnAgregarCategoria"
+									data-bs-dismiss="modal">Agregar</button>
 							</div>
 						</form>
 					</div>
@@ -60,7 +61,7 @@ if (isset($_SESSION['usuario'])) {
 					</div>
 					<div class="modal-body">
 						<form id="frmCategoriaU">
-							<input type="hidden" id="idcategoria" name="idcategoria">
+							<input type="hidden" id="idcategoria" name="idcategoria" value="0">
 							<label class="form-label" for="categoriaU">Categoria</label>
 							<input type="text" id="categoriaU" name="categoriaU" class="form-control">
 							<div class="modal-footer justify-content-center d-flex">
@@ -72,10 +73,25 @@ if (isset($_SESSION['usuario'])) {
 				</div>
 			</div>
 		</div>
-		<!-- Button trigger modal -->
-
-		<!-- Modal -->
-
+		<div class="modal fade" id="showCategory" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Categoria</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="frmCategoriaU">
+							<label class="form-label" for="categoriaU">Categoria</label>
+							<input type="text" id="categoriaU" name="categoriaU" class="form-control" disabled value="categoria">
+							<div class="modal-footer justify-content-center d-flex">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 
 	</html>
@@ -118,6 +134,13 @@ if (isset($_SESSION['usuario'])) {
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#btnActualizaCategoria').click(function () {
+				
+				falso = validarFormVacio('frmCategoriaU');
+
+				if (falso > 0) {
+					alertify.alert("Debes llenar todos los campos");
+					return false;
+				}
 
 				datos = $('#frmCategoriaU').serialize();
 				$.ajax({
@@ -128,6 +151,7 @@ if (isset($_SESSION['usuario'])) {
 						if (r == 1) {
 							$("#tablaCategoriaLoad").load("categorias/tablaCategorias.php");
 							alertify.success("Actualizado con exito");
+							console.log("" + '#categoriaU');
 						} else {
 							alertify.error("Fallo al actualizar");
 						}
@@ -167,7 +191,7 @@ if (isset($_SESSION['usuario'])) {
 
 	</script>
 
-<?php
+	<?php
 } else {
 	header("location:../index.php");
 }
